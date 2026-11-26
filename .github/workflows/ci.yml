@@ -17,7 +17,7 @@ jobs:
             java-version: '25'
 
       - name: Compilar
-        run: java -d ou *.java
+        run: java -d out *.java
 
       - name: Ejecutar los test
         run: java -ea -cp out TiendaTest
