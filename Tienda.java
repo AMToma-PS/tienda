@@ -4,6 +4,6 @@ public class Tienda {
     }
 
     public int precioConIva(int precio) {
-        return precio * 21 / 100;
+        return precio * 121 / 100;
     }
 }

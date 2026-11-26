@@ -1,0 +1,37 @@
+name: Tienda
+
+on:
+ push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el codigo
+        uses: actions/checkout@v5
+
+      - name: Instalar java
+        uses: actions/checkout@v5
+        with:
+            distribution: temurin
+            java-version: '25'
+
+      - name: Compilar
+        run: java -d ou *.java
+
+      - name: Ejecutar los test
+        run: java -ea -cp out TiendaTest
+
+      - name: Ejecutar programa
+        run: java -cp out Main
+
+      - name: Crear JAR
+        run: jar cfe app.jar Main -C out .
+
+      - name: Guardar el JAR como artefacto
+        uses: actions/upload-artifact@v7
+        with:
+          name: app
+          path: app.jar
+
+
